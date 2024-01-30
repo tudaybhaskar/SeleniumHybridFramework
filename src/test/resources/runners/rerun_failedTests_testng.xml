@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RerunFailedTestsSuite" verbose="1" >
+    <test name="RerunFailedTests" >
+        <classes>
+            <class name="com.tests.selenium.testRunners.FailedTestsRerun" />
+            <!-- FailedTestsRerun is a class where we are invoking the list of failedTests collecting during run
+            and then passing to the invoke method via DataProvider that provides class name and test method name-->
+
+        </classes>
+    </test>
+
+
+</suite>
+
+<!-- The command to execute via commandLine is
+   mvn clean test -DsuiteXmlFile=path/to/rerun-failed-tests.xml
+
+   So , to execute the above mvn command. We have to pass the xml file to pom.xml under maven-surefire-plugin
+   <artifactId>maven-surefire-plugin</artifactId>
+   <version>3.0.0-M5</version>
+        <configuration>
+            <suiteXmlFiles>
+                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+        </configuration>
+    </plugin>
+-->
+

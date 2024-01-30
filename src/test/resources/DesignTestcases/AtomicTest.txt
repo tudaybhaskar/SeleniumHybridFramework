@@ -1,0 +1,24 @@
+Navigation:
+1. NavigationFromHomeToStoreUSingMainMenu
+2. NavigateFromStoreToProductPage
+3. NavigateFromHomeToFeaturedProductPage
+
+AddToCart
+1. AddToCartFromStorePage
+2. AddFeatureProductToCart
+3. AddToCartFromProductPage
+
+Checkout
+1. GuestCheckoutUsingDirectBankTransfer
+2. LoginAndCheckoutUsingDirectBankTransfer(Register User > Edit Billing Address >> Add Product to cart)
+3. GuestCheckoutUsingCashOnDelivery
+4. LoginAndCheckoutUsingCashOnDelivery
+
+Search
+1. SearchWithPartialMatch
+2. SearchWithExactMatch
+3. SearchNonExistingProduct
+
+Login
+1. LoginDuringCheckout
+2. LoginFails

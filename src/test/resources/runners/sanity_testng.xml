@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite_Sanity" verbose="1" >
+    <test name="Sanity_Test" >
+        <parameter name="browser" value="CHROME"></parameter>
+        <!-- This way we can pass the parameter and execute via testng.xml file as well -->
+        <classes>
+            <class name="com.tests.selenium.optimizedTests.NavigationTest" />
+        </classes>
+    </test>
+</suite>

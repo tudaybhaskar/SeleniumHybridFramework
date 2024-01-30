@@ -1,0 +1,10 @@
+{
+  "firstName" : "DemoFirstName",
+  "lastName" : "DemoLastName",
+  "addressLine1" : "Sankar Residency",
+  "city" : "Chennai",
+  "zipCode" : "600098",
+  "email" : "testmail@test.com",
+  "state" : "Tamil Nadu",
+  "country" : "India"
+}

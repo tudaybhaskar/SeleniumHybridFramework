@@ -1,0 +1,15 @@
+LoginDuringCheckout:
+RegisterUser
+Add Product to Cart
+
+GuestCheckoutUsingDirectBankTransfer:
+Add Product to Cart
+
+LoginAndCheckoutUsingDirectBankTransfer:
+RegisterUser
+Add Product to Cart
+
+LoginAndCheckoutUsingDirectBankTransfer:
+Register user
+Edit Billing Address
+Add Product to Cart

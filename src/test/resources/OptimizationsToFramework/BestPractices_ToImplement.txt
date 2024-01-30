@@ -1,0 +1,11 @@
+BestPractice 1:
+Create an interface of LoginPage.
+Create a AppLoginPage that implements the LoginPage.
+
+The advantage of doing this is : LoginPage interface is implemented by many loginPages. In the future , if we have another loginPage
+we can use the interface and this makes more easy to maintain , scalable and modular.
+
+Full Page screenshot - by using Ashot
+1. Can take full screenshot
+2. Can take individual element screenshot as well // Try implementing
+3. crop the original screenshot as well //Try implementing
