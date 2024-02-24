@@ -23,6 +23,7 @@ public class CheckoutPage extends BasePage {
     private final By billingCountry_dropdown = By.cssSelector("#billing_country");
     private final By billingState_dropdown = By.cssSelector("select#billing_state");
     private final By loginHere_Link = By.cssSelector("a.showlogin");
+    private final By cashOnDelivery_radioBtn = By.cssSelector("#payment_method_cod");
 
     private final By overlay = By.cssSelector(".blockUI.blockOverlay");
 
@@ -177,7 +178,7 @@ public class CheckoutPage extends BasePage {
 
     }
 
-    public CheckoutPage setBillingAddressUsingBuilderPatter(BillingAddress billingAddress){
+    public CheckoutPage setBillingAddressUsingBuilderPattern(BillingAddress billingAddress){
         return enterFirstName(billingAddress.getFirstName())
                 .enterLastName(billingAddress.getLastName())
                 .selectBillingCountry(billingAddress.getCountry())
@@ -186,6 +187,11 @@ public class CheckoutPage extends BasePage {
                 .selectBillingState(billingAddress.getState())
                 .enterZipCode(billingAddress.getZipCode())
                 .enterEmail(billingAddress.getEmail());
+    }
+
+    public CheckoutPage selectCashOnDelivery(){
+        driver.findElement(cashOnDelivery_radioBtn).click();
+        return this;
     }
 
     public String getBillingEmailAddress(){

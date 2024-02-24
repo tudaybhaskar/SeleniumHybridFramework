@@ -30,7 +30,6 @@ public class CheckoutTest extends BaseTest {
     @Description("Allure Description: Guest checkout using Direct Bank transfer" )
     @Test(description = "Testng Description: Guest Checkout using Direct Bank Transfer")
     public void guestCheckoutUsingDirectBankTransfer() throws IOException {
-
         /*
         Guest Details :
          */
@@ -53,12 +52,11 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(cartPage.getProductName(), productName);
 
         CheckoutPage checkoutPage = cartPage.clickProceedToCheckout();
-        checkoutPage.setBillingAddressUsingBuilderPatter(billingAddress);
+        checkoutPage.setBillingAddressUsingBuilderPattern(billingAddress);
 
         checkoutPage.clickPlaceOrder();
         checkoutPage.getOrderNotice();
         checkoutPage.assertOrderIsPlaced();
-
     }
 
     @Description("Allure Description: Guest checkout using Direct Bank transfer - API data Setup" )
@@ -89,13 +87,46 @@ public class CheckoutTest extends BaseTest {
         getDriver().navigate().refresh();
         CheckoutPage checkoutPage = new CheckoutPage(getDriver());
         checkoutPage.load();
-        checkoutPage.setBillingAddressUsingBuilderPatter(billingAddress)
+        checkoutPage.setBillingAddressUsingBuilderPattern(billingAddress)
                 .clickPlaceOrder()
                 .getOrderNotice();
 
         checkoutPage.assertOrderIsPlaced();
-
     }
 
+    @Test
+    public void verifyGuestCheckoutUsingCashOnDelivery() throws IOException {
+        BillingAddress billingAddress = JacksonUtils.deserializeJson("myBillingAddress.json", BillingAddress.class);
+        FakerUtils fakerUtils = new FakerUtils();
+        Map<String, String> guestUser = fakerUtils.generateGuestUser();
+        billingAddress.setFirstName(guestUser.get("firstName"));
+        billingAddress.setLastName(guestUser.get("lastName"));
+        billingAddress.setEmail(guestUser.get("email"));
+
+        Product product = new Product(1196);
+        CartApi cartApi = new CartApi();
+        Response response = cartApi.addToCart( product.getId(), 1);
+
+        CheckoutApi checkoutApi = new CheckoutApi(cartApi.getCookies());
+        Cookies cookies = checkoutApi.getCookies();
+
+        CookieUtils cookieUtils = new CookieUtils();
+        List<Cookie> seleniumCookies = cookieUtils.convertRestAssuredCookiesToSeleniumCookies(cookies);
+
+        getDriver().get(ConfigLoader.getInstance().openBaseUrl());
+        for ( Cookie cookie : seleniumCookies ){
+            getDriver().manage().addCookie(cookie);
+        }
+
+        getDriver().navigate().refresh();
+        CheckoutPage checkoutPage = new CheckoutPage(getDriver());
+        checkoutPage.load();
+        checkoutPage.setBillingAddressUsingBuilderPattern(billingAddress)
+                .selectCashOnDelivery()
+                .clickPlaceOrder()
+                .getOrderNotice();
+
+        checkoutPage.assertOrderIsPlaced();
+    }
 
 }

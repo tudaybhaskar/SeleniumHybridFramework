@@ -1,14 +1,9 @@
 package com.tests.selenium.base;
 
 import com.app.selenium.constants.DriverType;
-import com.app.selenium.driverManager.DriverManager;
-import com.app.selenium.factory.DriverManagerFactory;
-import com.app.selenium.factory.abstractFactory.AbstractChromeDriverManager;
 import com.app.selenium.factory.abstractFactory.AbstractDriverManager;
 import com.app.selenium.factory.abstractFactory.AbstractDriverManagerFactory;
-import com.app.selenium.utils.ConfigLoader;
 import com.app.selenium.utils.CookieUtils;
-import com.beust.jcommander.Parameter;
 import io.restassured.http.Cookies;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Cookie;
@@ -75,6 +70,12 @@ public class BaseTest {
     @AfterMethod
     public synchronized void quitDriver(ITestResult iTestResult) throws IOException {
         if(iTestResult.getStatus() == ITestResult.FAILURE){
+            File destFile = new File("screenshots" + File.separator + iTestResult.getTestClass()
+                    .getRealClass().getSimpleName()+"_"+
+                    iTestResult.getMethod().getMethodName()+".png");
+            takeScreenshot(destFile);
+        }
+        if(iTestResult.getStatus() == ITestResult.SUCCESS){
             File destFile = new File("screenshots" + File.separator + iTestResult.getTestClass()
                     .getRealClass().getSimpleName()+"_"+
                     iTestResult.getMethod().getMethodName()+".png");
