@@ -1,9 +1,11 @@
 package com.app.selenium.pages;
 
 import com.app.selenium.basePage.BasePage;
+import com.app.selenium.dataObjects.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class CartPage extends BasePage {
 
@@ -23,6 +25,10 @@ public class CartPage extends BasePage {
     public CheckoutPage clickProceedToCheckout(){
         driver.findElement(proceedToCheckoutButton).click();
         return new CheckoutPage(driver);
+    }
+
+    public void assertFeaturedProductInCart(Product product){
+        Assert.assertEquals(this.getProductName(), product.getName());
     }
 
 }

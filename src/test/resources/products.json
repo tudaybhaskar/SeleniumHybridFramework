@@ -1,6 +1,7 @@
 [
   {
     "id" : 1215,
+    "featured": true,
     "name": "Blue Shoes"
   },
   {
@@ -9,6 +10,7 @@
   },
   {
     "id" : 1205,
+    "featured": true,
     "name" : "Basic Blue Jeans"
   },
   {

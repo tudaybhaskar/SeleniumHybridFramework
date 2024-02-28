@@ -80,9 +80,14 @@ public class CheckoutTest extends BaseTest {
         List<Cookie> seleniumCookies = cookieUtils.convertRestAssuredCookiesToSeleniumCookies(cookies);
 
         getDriver().get(ConfigLoader.getInstance().openBaseUrl());
+        /*
         for ( Cookie cookie : seleniumCookies ){
             getDriver().manage().addCookie(cookie);
         }
+
+         */
+        injectCookiesToBrowser(cookies);
+
 
         getDriver().navigate().refresh();
         CheckoutPage checkoutPage = new CheckoutPage(getDriver());

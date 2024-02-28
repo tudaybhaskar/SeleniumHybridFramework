@@ -10,6 +10,7 @@ public class Product {
     private int id;
 
     private String name;
+    private boolean featured;
     public Product(){
 
     }
@@ -24,6 +25,18 @@ public class Product {
                 this.name = product.getName();
             }
         }
+    }
+
+    public Product(boolean featured) throws IOException {
+        Product[] products = JacksonUtils.deserializeJson("products.json", Product[].class);
+
+        for(Product product: products ){
+            if(featured){
+                this.id = product.getId();
+                this.name = product.getName();
+            }
+        }
+
     }
 
 
@@ -41,6 +54,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setFeatured( boolean featured ){
+        this.featured = featured ;
+    }
+
+    public boolean getFeatured( ){
+        return featured;
     }
 
 

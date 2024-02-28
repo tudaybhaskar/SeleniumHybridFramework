@@ -5,6 +5,7 @@ import com.app.selenium.pages.CartPage;
 import com.app.selenium.pages.StorePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductThumbnail extends BasePage {
 
@@ -25,7 +26,8 @@ public class ProductThumbnail extends BasePage {
     }
 
     public CartPage clickViewCart(){
-        driver.findElement(viewCartLink).click();
+        waitFor5Seconds.until(ExpectedConditions.visibilityOfElementLocated(viewCartLink)).click();
+        // driver.findElement(viewCartLink).click();
         return new CartPage(driver);
     }
 }

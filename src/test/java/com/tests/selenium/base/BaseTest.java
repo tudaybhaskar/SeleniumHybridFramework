@@ -59,10 +59,14 @@ public class BaseTest {
 
         //browser = System.getProperty("browser","CHROME");
        /*
+       When using inter DriverManager
        setDriver(DriverManagerFactory.getManager(DriverType.valueOf("chrome")).createDriver());
        setDriverManager(AbstractDriverManagerFactory.getManager(DriverType.valueOf("chrome")));
-       when using abstract class for Driver setup
         */
+
+        /*
+        when using abstract class for Driver setup : AbstractDriverManager
+         */
         setDriverManager(AbstractDriverManagerFactory.getDriverManager(DriverType.valueOf(browser)));
         setDriver(getDriverManager().getDriver());
     }

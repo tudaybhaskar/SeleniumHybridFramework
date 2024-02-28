@@ -46,7 +46,7 @@ public class FailedTestsRerun {
         for(int i = 0; i < failedTests.size(); i++ ){
             ITestResult iTestResult = failedTests.get(i);
             tests[i][0] = iTestResult.getTestClass().getName();//Test class name
-            tests[i][0] = iTestResult.getMethod().getMethodName();//Test methods name
+            tests[i][1] = iTestResult.getMethod().getMethodName();//Test methods name
         }
         return tests;
     }
