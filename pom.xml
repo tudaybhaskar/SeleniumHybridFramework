@@ -13,7 +13,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <aspectj.version>1.9.6</aspectj.version>
-    <suiteXmlFile>src/test/resources/runners/smoke_testng.xml</suiteXmlFile>
+    <suiteXmlFile>src/test/resources/runners/sanity_testng.xml</suiteXmlFile>
+    <!--suiteXmlFile>src/test/resources/runners/smoke_testng.xml</suiteXmlFile-->
   </properties>
 
   <profiles>

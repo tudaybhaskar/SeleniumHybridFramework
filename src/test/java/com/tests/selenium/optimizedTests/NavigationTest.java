@@ -39,6 +39,6 @@ public class NavigationTest extends BaseTest {
         Product product = new Product(1215);
         HomePage homePage = new HomePage(getDriver());
         String FeatureProductTitle = homePage.load().getMyHeader().clickOnProduct(product.getName()).getProductTitle();
-        Assert.assertEquals(FeatureProductTitle,product.getName());
+        Assert.assertEquals(FeatureProductTitle+1,product.getName());
     }
 }
