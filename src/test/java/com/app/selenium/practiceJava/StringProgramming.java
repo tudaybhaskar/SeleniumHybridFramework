@@ -42,4 +42,23 @@ public class StringProgramming {
             return false;
         }
     }
+
+    // {1,2,0,0,5,6,0} - Move zeros to last - O/P =. { 1,2,5,6,0,0,0}
+    public int[] moveZerosToLast(int[] arr){
+
+        int zero_index = 0;
+        for( int i = 0 ; i < arr.length ; i++ ){
+
+            if( arr[i] != 0 ){
+                if( zero_index >= 1){
+                    arr[i-zero_index] = arr[i] ;
+                    arr[i] = 0;
+                }
+            }else{
+                zero_index = zero_index + 1 ;
+            }
+        }
+        return arr;
+
+    }
 }
