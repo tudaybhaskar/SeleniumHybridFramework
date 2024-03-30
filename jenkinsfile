@@ -74,8 +74,15 @@ pipeline {
                     // Loop through each XML file to count the occurrences of test failures
                     for (def xmlFile in xmlFiles) {
                         def xmlContent = readFile(xmlFile)
-                        def testFailures = xmlContent.findAll { it.contains('status="FAILURE"') }
-                        failedTestsCount += testFailures.size()
+                        def xml = new XmlSlurper().parseText(xmlContent)
+
+                        // Search for test elements with a status of FAILURE
+                        def failedTests = xml.'**'.findAll { node ->
+                            node.name() == 'test-method' && node.params.param.value.text().contains('status=FAILURE')
+                        }
+
+                        // Increment the count of failed tests
+                        failedTestsCount += failedTests.size()
                     }
 
                     // Print the count of failed tests
@@ -91,6 +98,7 @@ pipeline {
                 }
             }
         }
+
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
