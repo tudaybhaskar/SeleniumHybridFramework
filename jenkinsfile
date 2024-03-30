@@ -70,11 +70,8 @@ pipeline {
                     def xml = new XmlSlurper().parseText(xmlContent)
 
                     // Search for test-method elements with a status of FAILURE
-                    def failedTests = xml.'**'.test-method.findAll { node ->
-                        def status = node.value.param.find { param ->
-                            param.value.text().contains('status=FAILURE')
-                        }
-                        status != null
+                    def failedTests = xml.'**'.findAll { node ->
+                        node.name() == 'test-method' && node.params.param.value.text().contains('status=FAILURE')
                     }
 
                     // Count the number of failed tests
