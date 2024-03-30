@@ -9,7 +9,16 @@ pipeline {
             steps {
                 // Perform any build steps here
                 // For example: Maven build, compile code, etc.
-                sh 'mvn clean install'
+                script {
+                    try {
+                        sh 'mvn clean install'
+                    } catch (Exception e) {
+                         // Handle the failure (optional)
+                         echo "Failed to run tests: ${e.message}"
+                         // Mark the stage as failed
+                         currentBuild.result = 'FAILURE'
+                    }
+                }
             }
         }
         stage('Check for Failed Tests') {
