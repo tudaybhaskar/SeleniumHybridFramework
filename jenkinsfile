@@ -50,6 +50,7 @@ pipeline {
                         def rerunXmlExists = fileExists("${runnersDir}/rerun_failed_1tests.xml")
                         if (rerunXmlExists) {
                             echo "Test XML: rerun_failed_1tests are available."
+                            archiveArtifacts artifacts: "${rerunXmlExists}", allowEmptyArchive: true
                         } else {
                             error "Test XML: rerun_failed_1tests not found!"
                         }
