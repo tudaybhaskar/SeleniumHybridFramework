@@ -2,6 +2,7 @@
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/dataObjects/User.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/api/actions/CheckoutApi.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/dummy/DummyTest.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/listeners/RetryAnalyzer.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/constants/DriverType.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/interviewTests/TestCollections.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/pages/CartPage.java
@@ -22,6 +23,7 @@
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/pages/HomePage.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/dataObjects/BillingAddress.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/optimizedTests/NavigationTest.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/xmlUtils/TestNGXmlUtils.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/apiTests/ApiTrailTests.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/utils/CookieUtils.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/basePage/BasePage.java
@@ -35,6 +37,7 @@
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/factory/abstractFactory/AbstractDriverManager.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/conceptsTests/HandleAutoSuggestionsTest.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/pages/components/ProductThumbnail.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/reportUtils/FailedTestNGXmlGenerator.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/appTests/FeaturedTest.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/appTests/CheckoutTest.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/testRunners/FailedTestsRerun.java
@@ -46,8 +49,11 @@
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/pages/FeaturedProductPage.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/factory/abstractFactory/AbstractDriverManagerFactory.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/constants/ProductType.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/logicalPrograming/StringLogicals_Test.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/tests/selenium/tests/dataProviderTests/TestWithDataProvider.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/pages/StorePage.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/practiceJava/StringProgramming.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/constants/EnvType.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/dataProvider/MyDataProvider.java
 /Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/dataObjects/Product.java
+/Users/udayabhaskar/Documents/Learning/SDET/SeleniumHybridFramework/src/test/java/com/app/selenium/listeners/RetryListener.java

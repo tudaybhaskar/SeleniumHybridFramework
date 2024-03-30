@@ -1,12 +1,12 @@
 package com.tests.selenium.testRunners;
 
+import com.app.selenium.listeners.FailedTestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static com.app.selenium.listeners.FailedTestListener.failedTests;
 
 public class FailedTestsRerun {
 
@@ -42,11 +42,15 @@ public class FailedTestsRerun {
     //DateProvider to provide information about failed tests
     @DataProvider(name = "failedTestsProviders")
     public Object[][] getFailedTests(){
-        Object[][] tests = new Object[failedTests.size()][2];
-        for(int i = 0; i < failedTests.size(); i++ ){
-            ITestResult iTestResult = failedTests.get(i);
+        System.out.println("FailedTestsProvider is invoked");
+        System.out.println("FailedTestListener.GetFailedTests(): " + FailedTestListener.getFailedTests());
+        Object[][] tests = new Object[FailedTestListener.getFailedTests().size()][2];
+        for(int i = 0; i < FailedTestListener.getFailedTests().size(); i++ ){
+            ITestResult iTestResult = FailedTestListener.getFailedTests().get(i);
             tests[i][0] = iTestResult.getTestClass().getName();//Test class name
             tests[i][1] = iTestResult.getMethod().getMethodName();//Test methods name
+            System.out.println("TestClassName: " + tests[i][0]);
+            System.out.println("TestClassMethod: " + tests[i][1]);
         }
         return tests;
     }

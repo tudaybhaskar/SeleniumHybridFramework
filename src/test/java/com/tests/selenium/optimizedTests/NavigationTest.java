@@ -2,12 +2,14 @@ package com.tests.selenium.optimizedTests;
 
 import com.app.selenium.dataObjects.Product;
 import com.app.selenium.dataObjects.Products;
+import com.app.selenium.listeners.FailedTestListener;
 import com.app.selenium.pages.FeaturedProductPage;
 import com.app.selenium.pages.HomePage;
 import com.app.selenium.pages.StorePage;
 import com.app.selenium.utils.JacksonUtils;
 import com.tests.selenium.base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;

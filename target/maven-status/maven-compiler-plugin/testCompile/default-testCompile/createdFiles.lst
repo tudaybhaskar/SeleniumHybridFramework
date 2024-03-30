@@ -25,17 +25,22 @@ com/app/selenium/factory/DriverManagerFactory$1.class
 com/tests/selenium/tests/fileTests/LearnFiles.class
 com/app/selenium/factory/DriverManager.class
 com/app/selenium/pages/components/ProductThumbnail.class
+com/app/selenium/listeners/RetryListener.class
 com/app/selenium/dataObjects/Products.class
 com/tests/selenium/tests/interviewTests/TestCollections.class
 com/app/selenium/fileUtils/FileOperations.class
+com/app/selenium/practiceJava/StringProgramming.class
+com/app/selenium/reportUtils/FailedTestNGXmlGenerator.class
 com/tests/selenium/optimizedTests/NavigationTest.class
 com/app/selenium/utils/ConfigLoader.class
 com/app/selenium/pages/AccountPage.class
 com/app/selenium/dataObjects/BillingAddress.class
 com/app/selenium/dataProvider/MyDataProvider.class
+com/tests/selenium/logicalPrograming/StringLogicals_Test.class
 com/tests/selenium/testRunners/FailedTestsRerun.class
 com/app/selenium/pages/FeaturedProductPage.class
 com/app/selenium/factory/ChromeDriverManager.class
+com/app/selenium/xmlUtils/TestNGXmlUtils.class
 com/app/selenium/pages/HomePage.class
 com/app/selenium/factory/FirefoxDriverManager.class
 com/tests/selenium/tests/MediumOptimizedTests.class
@@ -54,3 +59,4 @@ com/app/selenium/basePage/BasePage.class
 com/app/selenium/listeners/FailedTestListener.class
 com/app/selenium/constants/DriverType.class
 com/app/selenium/utils/JacksonUtils.class
+com/app/selenium/listeners/RetryAnalyzer.class

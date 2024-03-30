@@ -40,7 +40,7 @@ public class FirstTestCase extends BaseTest {
             product that get displayed there. So we should never use directly product name to find the element and get text of it.
             e.g: to write xpath like "//td/a[text()='Blue Shoes']" . Here we are specifying the product name .So , this is not a good approach.
         */
-        Assert.assertEquals(getDriver().findElement(By.cssSelector("td.product-name a")).getText(), "Blue Shoes");
+        Assert.assertEquals(getDriver().findElement(By.cssSelector("td.product-name a")).getText(), "Blue Shoes1");
 
     }
 

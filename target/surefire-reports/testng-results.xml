@@ -1,35 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="0" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-28T15:51:21 IST" name="Suite_Sanity" finished-at="2024-02-28T15:51:40 IST" duration-ms="18598">
+  <suite started-at="2024-03-29T17:04:12 IST" name="RerunFailedTests" finished-at="2024-03-29T17:04:26 IST" duration-ms="14062">
     <groups>
     </groups>
-    <test started-at="2024-02-28T15:51:21 IST" name="Sanity_Test" finished-at="2024-02-28T15:51:40 IST" duration-ms="18598">
+    <test started-at="2024-03-29T17:04:12 IST" name="Retry Failed Tests" finished-at="2024-03-29T17:04:26 IST" duration-ms="14062">
+      <class name="com.tests.selenium.tests.appTests.FirstTestCase">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:12 IST" name="startDriver" finished-at="2024-03-29T17:04:14 IST" duration-ms="2593" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startDriver -->
+        <test-method signature="verifyAddBlueShoesToCart()[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:15 IST" name="verifyAddBlueShoesToCart" description="Testng description : Verify AddBlueShoes to Cart" finished-at="2024-03-29T17:04:26 IST" duration-ms="11091" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Blue Shoes1] but found [Blue Shoes]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Blue Shoes1] but found [Blue Shoes]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at com.tests.selenium.tests.appTests.FirstTestCase.verifyAddBlueShoesToCart(FirstTestCase.java:43)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1623)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddBlueShoesToCart -->
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:22 IST" name="startDriver" finished-at="2024-03-29T17:04:24 IST" duration-ms="1130" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startDriver -->
+        <test-method signature="verifyProductCheckout_PlaceOrder()[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:24 IST" name="verifyProductCheckout_PlaceOrder" description="Register User(API) and Place Order" finished-at="2024-03-29T17:04:24 IST" duration-ms="27" status="FAIL">
+          <exception class="com.fasterxml.jackson.databind.exc.MismatchedInputException">
+            <message>
+              <![CDATA[Cannot deserialize value of type `com.app.selenium.dataObjects.Product` from Array value (token `JsonToken.START_ARRAY`)
+ at [Source: (BufferedInputStream); line: 1, column: 1]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.app.selenium.dataObjects.Product` from Array value (token `JsonToken.START_ARRAY`)
+ at [Source: (BufferedInputStream); line: 1, column: 1]
+at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1752)
+at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1526)
+at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1473)
+at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeFromArray(BeanDeserializer.java:656)
+at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:211)
+at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3809)
+at com.app.selenium.utils.JacksonUtils.deserializeJson(JacksonUtils.java:21)
+at com.tests.selenium.tests.appTests.FirstTestCase.verifyProductCheckout_PlaceOrder(FirstTestCase.java:112)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1623)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.fasterxml.jackson.databind.exc.MismatchedInputException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductCheckout_PlaceOrder -->
+        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:24 IST" name="quitDriver" finished-at="2024-03-29T17:04:24 IST" duration-ms="302" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyProductCheckout_PlaceOrder status=FAILURE method=FirstTestCase.verifyProductCheckout_PlaceOrder()[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5]" started-at="2024-03-29T17:04:26 IST" name="quitDriver" finished-at="2024-03-29T17:04:26 IST" duration-ms="313" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAddBlueShoesToCart status=FAILURE method=FirstTestCase.verifyAddBlueShoesToCart()[pri:0, instance:com.tests.selenium.tests.appTests.FirstTestCase@7a639ec5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+      </class> <!-- com.tests.selenium.tests.appTests.FirstTestCase -->
       <class name="com.tests.selenium.optimizedTests.NavigationTest">
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:21 IST" name="startDriver" finished-at="2024-02-28T15:51:24 IST" duration-ms="2657" status="PASS">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@6ff37443]" started-at="2024-03-29T17:04:12 IST" name="startDriver" finished-at="2024-03-29T17:04:14 IST" duration-ms="2593" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[CHROME]]>
+                <![CDATA[]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:21 IST" name="startDriver" finished-at="2024-02-28T15:51:25 IST" duration-ms="3757" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[CHROME]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startDriver -->
-        <test-method signature="NavigateFromHomeToFeaturedProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:24 IST" name="NavigateFromHomeToFeaturedProductPage" finished-at="2024-02-28T15:51:32 IST" duration-ms="8117" status="FAIL">
+        <test-method signature="NavigateFromHomeToFeaturedProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@6ff37443]" started-at="2024-03-29T17:04:15 IST" name="NavigateFromHomeToFeaturedProductPage" finished-at="2024-03-29T17:04:22 IST" duration-ms="7596" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Blue Shoes] but found [Blue Shoes1]]]>
@@ -42,7 +150,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 at org.testng.Assert.assertEquals(Assert.java:132)
 at org.testng.Assert.assertEquals(Assert.java:656)
 at org.testng.Assert.assertEquals(Assert.java:666)
-at com.tests.selenium.optimizedTests.NavigationTest.NavigateFromHomeToFeaturedProductPage(NavigationTest.java:42)
+at com.tests.selenium.optimizedTests.NavigationTest.NavigateFromHomeToFeaturedProductPage(NavigationTest.java:44)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -62,52 +170,11 @@ at java.base/java.lang.Thread.run(Thread.java:1623)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateFromHomeToFeaturedProductPage -->
-        <test-method signature="NavigateFromStoreToProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:25 IST" name="NavigateFromStoreToProductPage" finished-at="2024-02-28T15:51:36 IST" duration-ms="10636" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateFromStoreToProductPage -->
-        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:32 IST" name="quitDriver" finished-at="2024-02-28T15:51:33 IST" duration-ms="356" status="PASS">
+        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@6ff37443]" started-at="2024-03-29T17:04:22 IST" name="quitDriver" finished-at="2024-03-29T17:04:22 IST" duration-ms="357" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=NavigateFromHomeToFeaturedProductPage status=FAILURE method=NavigationTest.NavigateFromHomeToFeaturedProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:33 IST" name="startDriver" finished-at="2024-02-28T15:51:34 IST" duration-ms="1054" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[CHROME]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startDriver -->
-        <test-method signature="NavigationFromHomeToStoreUSingMainMenu()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:34 IST" name="NavigationFromHomeToStoreUSingMainMenu" finished-at="2024-02-28T15:51:40 IST" duration-ms="5857" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigationFromHomeToStoreUSingMainMenu -->
-        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:36 IST" name="quitDriver" finished-at="2024-02-28T15:51:36 IST" duration-ms="330" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=NavigateFromStoreToProductPage status=SUCCESS method=NavigationTest.NavigateFromStoreToProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="quitDriver(org.testng.ITestResult)[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07]" started-at="2024-02-28T15:51:40 IST" name="quitDriver" finished-at="2024-02-28T15:51:40 IST" duration-ms="490" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=NavigationFromHomeToStoreUSingMainMenu status=SUCCESS method=NavigationTest.NavigationFromHomeToStoreUSingMainMenu()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@264c5d07] output={null}]]]>
+                <![CDATA[[TestResult name=NavigateFromHomeToFeaturedProductPage status=FAILURE method=NavigationTest.NavigateFromHomeToFeaturedProductPage()[pri:0, instance:com.tests.selenium.optimizedTests.NavigationTest@6ff37443] output={null}]]]>
               </value>
             </param>
           </params>
@@ -115,6 +182,6 @@ at java.base/java.lang.Thread.run(Thread.java:1623)
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- com.tests.selenium.optimizedTests.NavigationTest -->
-    </test> <!-- Sanity_Test -->
-  </suite> <!-- Suite_Sanity -->
+    </test> <!-- Retry Failed Tests -->
+  </suite> <!-- RerunFailedTests -->
 </testng-results>

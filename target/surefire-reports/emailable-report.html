@@ -8,18 +8,40 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite_Sanity</th></tr>
-<tr><td><a href="#t0">Sanity_Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">18,598</td><td></td><td></td></tr>
+<tr><th colspan="8">RerunFailedTests</th></tr>
+<tr><td><a href="#t0">Retry Failed Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">14,062</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite_Sanity</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Sanity_Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.tests.selenium.optimizedTests.NavigationTest</td><td><a href="#m0">NavigateFromHomeToFeaturedProductPage</a></td><td rowspan="1">1709115684651</td><td rowspan="1">8117</td></tr><tr><th colspan="4">Sanity_Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.tests.selenium.optimizedTests.NavigationTest</td><td><a href="#m1">NavigateFromStoreToProductPage</a></td><td rowspan="1">1709115685721</td><td rowspan="1">10636</td></tr><tr class="passedeven"><td><a href="#m2">NavigationFromHomeToStoreUSingMainMenu</a></td><td rowspan="1">1709115694187</td><td rowspan="1">5857</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">RerunFailedTests</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Retry Failed Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.tests.selenium.optimizedTests.NavigationTest</td><td><a href="#m0">NavigateFromHomeToFeaturedProductPage</a></td><td rowspan="1">1711712055036</td><td rowspan="1">7596</td></tr><tr class="failedodd"><td rowspan="2">com.tests.selenium.tests.appTests.FirstTestCase</td><td><a href="#m1">verifyAddBlueShoesToCart</a></td><td rowspan="1">1711712055036</td><td rowspan="1">11091</td></tr><tr class="failedodd"><td><a href="#m2">verifyProductCheckout_PlaceOrder</a></td><td rowspan="1">1711712064129</td><td rowspan="1">27</td></tr></tbody>
 </table>
-<h2>Sanity_Test</h2><h3 id="m0">com.tests.selenium.optimizedTests.NavigationTest#NavigateFromHomeToFeaturedProductPage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Blue Shoes] but found [Blue Shoes1]
-	at com.tests.selenium.optimizedTests.NavigationTest.NavigateFromHomeToFeaturedProductPage(NavigationTest.java:42)
+<h2>Retry Failed Tests</h2><h3 id="m0">com.tests.selenium.optimizedTests.NavigationTest#NavigateFromHomeToFeaturedProductPage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Blue Shoes] but found [Blue Shoes1]
+	at com.tests.selenium.optimizedTests.NavigationTest.NavigateFromHomeToFeaturedProductPage(NavigationTest.java:44)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 ... Removed 16 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.tests.selenium.optimizedTests.NavigationTest#NavigateFromStoreToProductPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.tests.selenium.optimizedTests.NavigationTest#NavigationFromHomeToStoreUSingMainMenu</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.tests.selenium.tests.appTests.FirstTestCase#verifyAddBlueShoesToCart</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Blue Shoes1] but found [Blue Shoes]
+	at com.tests.selenium.tests.appTests.FirstTestCase.verifyAddBlueShoesToCart(FirstTestCase.java:43)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+... Removed 16 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.tests.selenium.tests.appTests.FirstTestCase#verifyProductCheckout_PlaceOrder</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.app.selenium.dataObjects.Product` from Array value (token `JsonToken.START_ARRAY`)
+ at [Source: (BufferedInputStream); line: 1, column: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1752)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1526)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1473)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeFromArray(BeanDeserializer.java:656)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:211)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3809)
+	at com.app.selenium.utils.JacksonUtils.deserializeJson(JacksonUtils.java:21)
+	at com.tests.selenium.tests.appTests.FirstTestCase.verifyProductCheckout_PlaceOrder(FirstTestCase.java:112)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+... Removed 10 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -1,9 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="RerunFailedTestsSuite" verbose="1" >
+    <listeners>
+        <listener class-name="com.app.selenium.listeners.FailedTestListener"/>
+    </listeners>
     <test name="RerunFailedTests" >
         <classes>
-            <class name="com.tests.selenium.testRunners.FailedTestsRerun" />
+            <class name="com.tests.selenium.optimizedTests.NavigationTest" />
             <!-- FailedTestsRerun is a class where we are invoking the list of failedTests collecting during run
             and then passing to the invoke method via DataProvider that provides class name and test method name-->
 

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="methods" name="Failed suite [Suite_Sanity]" guice-stage="DEVELOPMENT" verbose="0">
-  <test thread-count="2" parallel="methods" name="Sanity_Test(failed)" verbose="0">
-    <parameter name="browser" value="CHROME"/>
+<suite thread-count="2" parallel="methods" name="Failed suite [RerunFailedTests]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="2" parallel="methods" name="Retry Failed Tests(failed)" verbose="0">
     <classes>
+      <class name="com.tests.selenium.tests.appTests.FirstTestCase">
+        <methods>
+          <include name="quitDriver"/>
+          <include name="verifyAddBlueShoesToCart"/>
+          <include name="verifyProductCheckout_PlaceOrder"/>
+          <include name="startDriver"/>
+        </methods>
+      </class> <!-- com.tests.selenium.tests.appTests.FirstTestCase -->
       <class name="com.tests.selenium.optimizedTests.NavigationTest">
         <methods>
           <include name="quitDriver"/>
@@ -12,5 +19,5 @@
         </methods>
       </class> <!-- com.tests.selenium.optimizedTests.NavigationTest -->
     </classes>
-  </test> <!-- Sanity_Test(failed) -->
-</suite> <!-- Failed suite [Suite_Sanity] -->
+  </test> <!-- Retry Failed Tests(failed) -->
+</suite> <!-- Failed suite [RerunFailedTests] -->
