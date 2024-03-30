@@ -126,33 +126,6 @@
           </dependency>
         </dependencies>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.0</version>
-        <executions>
-          <execution>
-            <id>update-testng-xml</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/testng</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/test/resources/runners</directory>
-                  <filtering>true</filtering>
-                  <includes>
-                    <include>rerun_failed_tests.xml</include>
-                  </includes>
-                </resource>
-              </resources>
-              <overwrite>true</overwrite>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
     </plugins>
   </build>

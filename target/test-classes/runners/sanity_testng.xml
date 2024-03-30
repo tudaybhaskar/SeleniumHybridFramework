@@ -3,6 +3,8 @@
 <suite name="Suite_Sanity" verbose="1" >
 <listeners>
     <listener class-name="com.app.selenium.listeners.FailedTestListener"/>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+
 </listeners>
     <test name="Sanity_Test" >
         
@@ -12,7 +14,6 @@
         <!-- This way we can pass the parameter and execute via testng.xml file as well -->
         <classes>
             <class name="com.tests.selenium.optimizedTests.NavigationTest"/>
-            <class name="com.tests.selenium.tests.appTests.FirstTestCase" />
         </classes>
     </test>
 </suite>

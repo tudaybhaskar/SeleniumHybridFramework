@@ -44,6 +44,7 @@ public class FailedTestListener implements ITestListener {
     public void onFinish(ITestContext context){
         FailedTestNGXmlGenerator.generateFailedTestsXml(failedTests);
 
+        /*
         List<ITestResult> failedTests = (List<ITestResult>) context.getFailedTests().getAllResults();
         System.out.println("OnFinish: FailedTests: " + failedTests.size());
 
@@ -67,6 +68,7 @@ public class FailedTestListener implements ITestListener {
             System.out.println("Invoking Generate XML File");
             TestNGXmlUtils.generateXmlFile(suite, "src/test/resources/runners/rerun_failed_tests.xml");
         }
+        */
     }
 
 

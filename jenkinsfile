@@ -1,21 +1,15 @@
 pipeline {
     agent any
     environment {
-            PATH = "/opt/homebrew/Cellar/maven/3.9.4/bin:$PATH"
+            PATH = "/opt/homebrew/Cellar/maven/3.9.6/bin:$PATH"
     }
 
     stages {
-        stage('Build') {
+        stage('Run the tests') {
             steps {
                 // Perform any build steps here
                 // For example: Maven build, compile code, etc.
                 sh 'mvn clean install'
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                // Execute the initial test suite
-                sh 'mvn test'
             }
         }
         stage('Check for Failed Tests') {
