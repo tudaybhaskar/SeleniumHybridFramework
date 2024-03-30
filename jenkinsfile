@@ -22,18 +22,23 @@ pipeline {
             }
         }
         stage('Check for Failed Tests') {
-            steps {
-                script {
-                    def rerunTestsXml = 'src/test/resources/runners/rerun_failed_1tests.xml'
-                    if (fileExists(rerunTestsXml)) {
-                        // Run tests with the rerun_failed_tests.xml file
-                        sh "mvn test -Dsurefire.suiteXmlFiles=${rerunTestsXml}"
-                    } else {
-                        echo 'No failed tests found. Skipping rerun.'
+                    steps {
+                        script {
+                            // Check if there are any failed tests
+                            def failedTestsCount = sh(
+                                script: "grep -c '<failure>' target/surefire-reports/*.xml || true",
+                                returnStdout: true
+                            ).trim()
+
+                            if (failedTestsCount.toInteger() > 0) {
+                                // Rerun the failed tests using the rerun_failed_tests.xml file
+                                sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
+                            } else {
+                                echo 'No failed tests found. Skipping rerun.'
+                            }
+                        }
                     }
                 }
-            }
-        }
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
