@@ -21,6 +21,29 @@ pipeline {
                 }
             }
         }
+
+        stage('Verify Test Reports') {
+            steps {
+                script {
+                    // Check if the surefire-reports directory exists
+                    def surefireReportsDir = "${env.WORKSPACE}/target/surefire-reports"
+                    if (fileExists(surefireReportsDir)) {
+                        // List the contents of the surefire-reports directory
+                            sh "ls ${surefireReportsDir}"
+
+                            // Check for specific XML files
+                            def testngReportExists = fileExists("${surefireReportsDir}/testng-results.xml")
+                            if (testngReportExists) {
+                                echo "Test reports are available."
+                            } else {
+                                error "Test reports not found!"
+                            }
+                    } else {
+                        error "Surefire reports directory not found!"
+                    }
+                }
+            }
+        }
         stage('Check for Failed Tests') {
                     steps {
                         script {
