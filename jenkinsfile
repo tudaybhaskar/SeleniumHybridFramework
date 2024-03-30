@@ -65,25 +65,17 @@ pipeline {
                     // Initialize the count of failed tests
                     def failedTestsCount = 0
 
-                    // List of XML files to search for test failures
-                    def xmlFiles = sh(
-                        script: 'ls target/surefire-reports/*.xml',
-                        returnStdout: true
-                    ).trim().split()
+                    // Read the testng-results.xml file
+                    def xmlContent = readFile('target/surefire-reports/testng-results.xml')
+                    def xml = new XmlSlurper().parseText(xmlContent)
 
-                    // Loop through each XML file to count the occurrences of test failures
-                    for (def xmlFile in xmlFiles) {
-                        def xmlContent = readFile(xmlFile)
-                        def xml = new XmlSlurper().parseText(xmlContent)
-
-                        // Search for test elements with a status of FAILURE
-                        def failedTests = xml.'**'.findAll { node ->
-                            node.name() == 'test-method' && node.params.param.value.text().contains('status=FAILURE')
-                        }
-
-                        // Increment the count of failed tests
-                        failedTestsCount += failedTests.size()
+                    // Search for test elements with a status of FAILURE
+                    def failedTests = xml.'**'.findAll { node ->
+                        node.name() == 'test-method' && node.params.param.value.text().contains('status=FAILURE')
                     }
+
+                    // Count the number of failed tests
+                    failedTestsCount = failedTests.size()
 
                     // Print the count of failed tests
                     echo "failedTestsCount: ${failedTestsCount}"
@@ -98,7 +90,6 @@ pipeline {
                 }
             }
         }
-
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
