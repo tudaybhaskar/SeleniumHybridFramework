@@ -71,7 +71,8 @@ pipeline {
 
                     // Search for test-method elements with a status of FAILURE
                     def failedTests = xml.'**'.findAll { node ->
-                        node.name() == 'test-method' && node.params.param.value.text().contains('status=FAILURE')
+                        def nodeAsString = node.toString()
+                        nodeAsString.contains('status=FAILURE')
                     }
 
                     // Count the number of failed tests
