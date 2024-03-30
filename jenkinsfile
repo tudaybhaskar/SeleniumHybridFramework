@@ -36,7 +36,7 @@ pipeline {
                             if (failedTestsCount && failedTestsCount.isNumber()) {
                                 if (failedTestsCount.toInteger() > 0) {
                                     // Rerun the failed tests using the rerun_failed_tests.xml file
-                                    sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_tests.xml'
+                                    sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
                                 } else {
                                         echo 'No failed tests found. Skipping rerun.'
                                 }
