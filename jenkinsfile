@@ -26,7 +26,7 @@ pipeline {
                         script {
                             // Check if there are any failed tests
                             def grepOutput = sh(
-                                script: "grep -c '<failure>' target/surefire-reports/*.xml || true",
+                                script: "grep -c 'FAILURE' target/surefire-reports/*.xml || true",
                                 returnStdout: true
                             ).trim()
 
