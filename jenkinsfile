@@ -28,8 +28,8 @@ pipeline {
                     sh 'mvn test -DskipTests=true -Dmaven.test.failure.ignore=true'
 
                     // Check if there are any failed tests
-                    def failedTestsCount = sh(script: 'grep -c "<failure>" target/surefire-reports/*.xml || true', returnStatus: true).trim()
-                    def failedTests = (failedTestsCount.isInteger()) ? failedTestsCount.toInteger() : 0
+                    def failedTestsCount = sh(script: 'grep -c "<failure>" target/surefire-reports/*.xml || true', returnStdout: true).trim()
+                    def failedTests = failedTestsCount.isNumber() ? failedTestsCount.toInteger() : 0
 
                     if (failedTests > 0) {
                         // Rerun the failed tests using the rerun_failed_tests.xml file
@@ -40,6 +40,7 @@ pipeline {
                 }
             }
         }
+
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
