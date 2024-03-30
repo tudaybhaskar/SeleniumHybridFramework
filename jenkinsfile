@@ -47,7 +47,7 @@ pipeline {
                         sh "ls ${runnersDir}"
 
                         // Check for specific XML files
-                        def rerunXmlExists = fileExists("${surefireReportsDir}/rerun_failed_1tests.xml")
+                        def rerunXmlExists = fileExists("${runnersDir}/rerun_failed_1tests.xml")
                         if (rerunXmlExists) {
                             echo "Test XML: rerun_failed_1tests are available."
                         } else {
