@@ -22,7 +22,6 @@ pipeline {
             }
         }
         stage('Check for Failed Tests') {
-        stage('Check for Failed Tests') {
             steps {
                 script {
                     def fileExists(String filePath) {
@@ -46,8 +45,6 @@ pipeline {
                 }
             }
         }
-
-
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
