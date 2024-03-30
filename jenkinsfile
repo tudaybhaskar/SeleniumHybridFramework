@@ -27,6 +27,7 @@ pipeline {
                 script {
                     // Check if the surefire-reports directory exists
                     def surefireReportsDir = "${env.WORKSPACE}/target/surefire-reports"
+                    def runnersDir = "${env.WORKSPACE}/src/test/resources/runners"
                     if (fileExists(surefireReportsDir)) {
                         // List the contents of the surefire-reports directory
                             sh "ls ${surefireReportsDir}"
@@ -41,35 +42,55 @@ pipeline {
                     } else {
                         error "Surefire reports directory not found!"
                     }
+                    if (fileExists(runnersDir)) {
+                        // List the contents of the surefire-reports directory
+                        sh "ls ${runnersDir}"
+
+                        // Check for specific XML files
+                        def rerunXmlExists = fileExists("${surefireReportsDir}/rerun_failed_1tests.xml")
+                        if (rerunXmlExists) {
+                            echo "Test XML: rerun_failed_1tests are available."
+                        } else {
+                            error "Test XML: rerun_failed_1tests not found!"
+                        }
+                    } else {
+                        error "Surefire reports directory not found!"
+                    }
                 }
             }
         }
         stage('Check for Failed Tests') {
             steps {
                 script {
-                    // Check if there are any failed tests
-                    def grepOutput = sh(
-                        script: "grep -c '<value.*status=FAILURE' target/surefire-reports/*.xml || true",
+                    // Initialize the count of failed tests
+                    def failedTestsCount = 0
+
+                    // List of XML files to search for test failures
+                    def xmlFiles = sh(
+                        script: 'ls target/surefire-reports/*.xml',
                         returnStdout: true
-                    ).trim()
+                    ).trim().split()
 
-                    // Extract the numeric part from the grep output
-                    def failedTestsCount = grepOutput.toInteger()
+                    // Loop through each XML file to count the occurrences of test failures
+                    for (def xmlFile in xmlFiles) {
+                        def xmlContent = readFile(xmlFile)
+                        def testFailures = xmlContent.findAll { it.contains('status="FAILURE"') }
+                        failedTestsCount += testFailures.size()
+                    }
 
-                    if (failedTestsCount && failedTestsCount.isNumber()) {
-                        if (failedTestsCount > 0) {
-                            // Rerun the failed tests using the rerun_failed_tests.xml file
-                            sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
-                        } else {
-                            echo 'No failed tests found. Skipping rerun.'
-                        }
+                    // Print the count of failed tests
+                    echo "failedTestsCount: ${failedTestsCount}"
+
+                    // Rerun the failed tests if any failures are found
+                    if (failedTestsCount > 0) {
+                        // Rerun the failed tests using the rerun_failed_tests.xml file
+                        sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
                     } else {
-                        echo 'Failed to determine the number of failed tests. Skipping rerun.'
+                        echo 'No failed tests found. Skipping rerun.'
                     }
                 }
             }
         }
-
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
