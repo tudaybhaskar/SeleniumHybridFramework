@@ -24,9 +24,12 @@ pipeline {
         stage('Check for Failed Tests') {
             steps {
                 script {
+                    // Run tests with failure ignoring to generate rerun_failed_tests.xml if needed
+                    sh 'mvn test -DskipTests=true -Dmaven.test.failure.ignore=true'
+
                     // Check if there are any failed tests
-                    def failedTests = sh(script: 'mvn test -DskipTests=true -Dmaven.test.failure.ignore=true', returnStatus: true).status
-                    if (failedTests != 0) {
+                    def failedTests = sh(script: 'grep -c "<failure>" target/surefire-reports/*.xml || true', returnStatus: true).trim()
+                    if (failedTests.toInteger() > 0) {
                         // Rerun the failed tests using the rerun_failed_tests.xml file
                         sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
                     } else {
