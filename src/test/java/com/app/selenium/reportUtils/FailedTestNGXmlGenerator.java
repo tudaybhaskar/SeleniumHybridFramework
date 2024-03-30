@@ -17,7 +17,7 @@ public class FailedTestNGXmlGenerator {
         xmlContent.append("<!DOCTYPE suite SYSTEM \"http://testng.org/testng-1.0.dtd\">");
         xmlContent.append("<suite name=\"RerunFailedTests\">");
         xmlContent.append("<listeners>");
-        xmlContent.append("<listener name=\"io.qameta.allure.testng.AllureTestNg\">");
+        xmlContent.append("<listener name=\"io.qameta.allure.testng.AllureTestNg\"/>");
         xmlContent.append("</listeners>");
         xmlContent.append("<test name=\"Retry Failed Tests\">");
         xmlContent.append("<classes>");

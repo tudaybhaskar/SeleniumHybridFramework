@@ -1,1 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="RerunFailedTests"><listeners><listener name="io.qameta.allure.testng.AllureTestNg"></listeners><test name="Retry Failed Tests"><classes><class name="com.tests.selenium.optimizedTests.NavigationTest"><methods><include name="NavigateFromHomeToFeaturedProductPage"/></methods></class></classes></test></suite>
