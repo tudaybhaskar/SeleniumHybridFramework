@@ -25,16 +25,23 @@ pipeline {
                     steps {
                         script {
                             // Check if there are any failed tests
-                            def failedTestsCount = sh(
+                            def grepOutput = sh(
                                 script: "grep -c '<failure>' target/surefire-reports/*.xml || true",
                                 returnStdout: true
                             ).trim()
 
-                            if (failedTestsCount.toInteger() > 0) {
-                                // Rerun the failed tests using the rerun_failed_tests.xml file
-                                sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
+                            // Extract the numeric part from the grep output
+                            def failedTestsCount = (grepOutput =~ /\d+/)[0]
+
+                            if (failedTestsCount && failedTestsCount.isNumber()) {
+                                if (failedTestsCount.toInteger() > 0) {
+                                    // Rerun the failed tests using the rerun_failed_tests.xml file
+                                    sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_tests.xml'
+                                } else {
+                                        echo 'No failed tests found. Skipping rerun.'
+                                }
                             } else {
-                                echo 'No failed tests found. Skipping rerun.'
+                            echo 'Failed to determine the number of failed tests. Skipping rerun.'
                             }
                         }
                     }
