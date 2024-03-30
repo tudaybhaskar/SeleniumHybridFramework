@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Perform any build steps here
+                // For example: Maven build, compile code, etc.
+                sh 'mvn clean install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                // Execute the initial test suite
+                sh 'mvn test'
+            }
+        }
+        stage('Check for Failed Tests') {
+            steps {
+                script {
+                    // Check if there are any failed tests
+                    def failedTests = sh(script: 'mvn test -DskipTests=true -Dmaven.test.failure.ignore=true', returnStatus: true).status
+                    if (failedTests != 0) {
+                        // Rerun the failed tests using the rerun_failed_tests.xml file
+                        sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
+                    } else {
+                        echo 'No failed tests to rerun.'
+                    }
+                }
+            }
+        }
+        // Add more stages as needed
+    }
+    // Post-build actions, notifications, etc.
+    post {
+        // For example, send email notifications if the build fails
+        failure {
+            // Generate and serve Allure report
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'allure-results']]
+            ])
+        }
+    }
+}
