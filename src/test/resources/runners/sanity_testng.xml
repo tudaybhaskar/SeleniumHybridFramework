@@ -3,6 +3,8 @@
 <suite name="Suite_Sanity" verbose="1" >
 <listeners>
     <listener class-name="com.app.selenium.listeners.FailedTestListener"/>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+
 </listeners>
     <test name="Sanity_Test" >
         
