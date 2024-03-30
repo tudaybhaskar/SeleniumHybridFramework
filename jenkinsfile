@@ -45,30 +45,31 @@ pipeline {
             }
         }
         stage('Check for Failed Tests') {
-                    steps {
-                        script {
-                            // Check if there are any failed tests
-                            def grepOutput = sh(
-                                script: "grep -c 'FAILURE' target/surefire-reports/*.xml || true",
-                                returnStdout: true
-                            ).trim()
+            steps {
+                script {
+                    // Check if there are any failed tests
+                    def grepOutput = sh(
+                        script: "grep -c '<value.*status=FAILURE' target/surefire-reports/*.xml || true",
+                        returnStdout: true
+                    ).trim()
 
-                            // Extract the numeric part from the grep output
-                            def failedTestsCount = (grepOutput =~ /\d+/)[0]
+                    // Extract the numeric part from the grep output
+                    def failedTestsCount = grepOutput.toInteger()
 
-                            if (failedTestsCount && failedTestsCount.isNumber()) {
-                                if (failedTestsCount.toInteger() > 0) {
-                                    // Rerun the failed tests using the rerun_failed_tests.xml file
-                                    sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
-                                } else {
-                                        echo 'No failed tests found. Skipping rerun.'
-                                }
-                            } else {
-                            echo 'Failed to determine the number of failed tests. Skipping rerun.'
-                            }
+                    if (failedTestsCount && failedTestsCount.isNumber()) {
+                        if (failedTestsCount > 0) {
+                            // Rerun the failed tests using the rerun_failed_tests.xml file
+                            sh 'mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runners/rerun_failed_1tests.xml'
+                        } else {
+                            echo 'No failed tests found. Skipping rerun.'
                         }
+                    } else {
+                        echo 'Failed to determine the number of failed tests. Skipping rerun.'
                     }
                 }
+            }
+        }
+
         // Add more stages as needed
     }
     // Post-build actions, notifications, etc.
